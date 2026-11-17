@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS users (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+INSERT INTO users (name)
+SELECT 'Sai'
+WHERE NOT EXISTS (SELECT 1 FROM users WHERE name = 'Sai');
+
+INSERT INTO users (name)
+SELECT 'Docker User'
+WHERE NOT EXISTS (SELECT 1 FROM users WHERE name = 'Docker User');

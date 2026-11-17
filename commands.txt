@@ -1,0 +1,44 @@
+DOCKER COMPOSE EXECUTION STEPS
+==============================
+
+1. Open terminal in this folder.
+
+2. Check Docker:
+   docker --version
+   docker compose version
+
+3. Build and start both containers:
+   docker compose up -d --build
+
+4. Check both containers:
+   docker compose ps
+
+5. Check application logs:
+   docker compose logs app-service
+
+6. Check database logs:
+   docker compose logs app-db
+
+7. Test the application:
+   curl http://localhost:8080/api/users
+
+Windows PowerShell alternative:
+   Invoke-RestMethod http://localhost:8080/api/users
+
+8. Test in browser:
+   http://localhost:8080/api/users
+
+9. Stop:
+   docker compose stop
+
+10. Remove containers:
+    docker compose down
+
+11. Remove containers and database data:
+    docker compose down -v
+
+IMPORTANT:
+The application connects to PostgreSQL using:
+   jdbc:postgresql://app-db:5432/appdb
+
+Do not change app-db to localhost inside the application container.

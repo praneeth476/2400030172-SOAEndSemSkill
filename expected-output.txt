@@ -1,0 +1,20 @@
+EXPECTED EXECUTION
+
+Command:
+docker compose ps
+
+Expected services:
+app-db
+app-service
+
+Test:
+curl http://localhost:8080/api/users
+
+Expected response:
+[
+  {"id":1,"name":"Sai"},
+  {"id":2,"name":"Docker User"}
+]
+
+The response proves:
+Browser/host -> app-service:8080 -> app-db:5432 -> PostgreSQL
